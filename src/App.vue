@@ -7,15 +7,18 @@
     <button v-on:click="addi()">Adicionar</button>
     <button @click="diminuir">Diminuir</button>
     <Binding />
+    <Listas />
   </div>
 </template>
 
 <script>
 import Binding from './components/Binding.vue'
+import Listas from './components/Listas.vue'
 
 export default {
   components: {
-    Binding
+    Binding,
+    Listas
 
   },
   data() {
