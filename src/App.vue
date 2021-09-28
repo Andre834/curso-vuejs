@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h2>Usando computed</h2>
+    <p>mensagem invertida: {{ msgIvertida10 }}</p>
+    <hr />
+    Valor atual: {{ valor }} <br />
+    <button v-on:click="addi()">Adicionar</button>
+    <button @click="diminuir">Diminuir</button>
+    <Binding />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Binding from './components/Binding.vue'
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Binding
+
+  },
+  data() {
+    return {
+      titulo: "Olá Mundo vuejs",
+      msg: "mundo vue okkkk",
+      valor: 18,
+    };
+  },
+  methods: {
+    addi() {
+      this.valor++;
+    },
+    diminuir() {
+      this.valor--;
+    },
+  },
+  computed: {
+    msgIvertida10() {
+      return this.msg
+        .split("")
+        .reverse()
+        .join("");
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
