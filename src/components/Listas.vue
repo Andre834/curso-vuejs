@@ -2,13 +2,26 @@
   <div>
       <h1>{{titulo}}</h1>
       <hr>
-      <h2>Listagem de frutas</h2>
+      <h2>Listagem de frutas { em objetos}</h2>
       <ul>
-          <li v-for="fruta in frutas" :key="fruta">{{ fruta }}</li>
+          <li v-for="fruta in frutas" :key="fruta.nome">
+            <strong>{{ fruta.nome }}</strong> 
+           fruta rico em vitamina {{ fruta.vitamina}}
+          </li>
       </ul>
+
        <h2>Listagem de frutas com índice</h2>
       <ul>
-          <li v-for="fruta in frutas" :key="fruta">{{ fruta }}</li>
+          <li v-for="(fruta, index) in frutas" :key="fruta">{{ index+1 }} - <strong>{{ fruta.nome }}</strong> 
+          fruta  rico em vitamina {{ fruta.vitamina }}
+          </li>
+      </ul>
+
+        <h2>Listagem de frutas (com objetos e índice)</h2>
+      <ul>
+          <li v-for="(fruta, index) in frutas" :key="index">{{ index}} - <strong>{{ fruta.nome }}</strong> 
+          fruta  rico em vitamina {{ fruta.vitamina }}
+          </li>
       </ul>
     <br> <br> <br> <br><br><br>
    <hr>
@@ -23,7 +36,11 @@ export default {
  data() {
     return {
       titulo: "Trabalhando com listas no vuejs",
-      frutas: ['laranja', 'Maçã', 'melão']
+      frutas: [
+        { nome:'laranja:', vitamina: 'C...'},
+        { nome: 'Maçã:', vitamina: 'B...'},
+        { nome: 'melão:', vitamina: 'A...'}
+      ]
     };
   },
   methods: {}
