@@ -1,50 +1,44 @@
 <template>
   <div>
-      <h1>{{titulo}}</h1>
-      <hr>
-      <h2>Listagem de frutas { em objetos}</h2>
-      <ul>
-          <li v-for="fruta in frutas" :key="fruta.nome">
-            <strong>{{ fruta.nome }}</strong> 
-           fruta rico em vitamina {{ fruta.vitamina}}
-          </li>
-      </ul>
+    <h2>Listagem de Livros</h2>
+    <hr/>
+      <div v-for="(livro, index) in livros" :key="index">{{ livro}}</div>
+      <br><br><br><br><br>
 
-       <h2>Listagem de frutas com índice</h2>
       <ul>
-          <li v-for="(fruta, index) in frutas" :key="fruta">{{ index+1 }} - <strong>{{ fruta.nome }}</strong> 
-          fruta  rico em vitamina {{ fruta.vitamina }}
-          </li>
-      </ul>
-
-        <h2>Listagem de frutas (com objetos e índice)</h2>
-      <ul>
-          <li v-for="(fruta, index) in frutas" :key="index">{{ index}} - <strong>{{ fruta.nome }}</strong> 
-          fruta  rico em vitamina {{ fruta.vitamina }}
-          </li>
-      </ul>
-    <br> <br> <br> <br><br><br>
-   <hr>
-   
+      <li v-for="(valor, chave, index,) in livro" :key="index">
+        ({{ index + 1 }}){{ chave }}: {{ valor }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Binding',
+  name: "Binding",
 
- data() {
+  data() {
     return {
-      titulo: "Trabalhando com listas no vuejs",
-      frutas: [
-        { nome:'laranja:', vitamina: 'C...'},
-        { nome: 'Maçã:', vitamina: 'B...'},
-        { nome: 'melão:', vitamina: 'A...'}
-      ]
+      livros: [
+        {
+          titulo: "O pequeno principe",
+          autor: "Santiago",
+          publicado: "1943",
+        },
+        {
+          titulo: "Senhor dos aneis",
+          autor: "Santiago",
+          publicado: "1983",
+        },
+        {
+          titulo: "O poder de Deus",
+          autor: "Santiago",
+          publicado: "1963",
+        },
+      ],
     };
   },
-  methods: {}
-}
+  methods: {},
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
